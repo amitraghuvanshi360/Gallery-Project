@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "269A3902-8481-4E2D-A55B-549E9119A24C"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D5DEAB24-5C08-46EE-9073-9EAF7CCB4DF6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "gallery-project/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "4"
+            endingLineNumber = "4"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2B7061FE-D7C7-40FE-88FA-14FAF9FF51FC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "gallery-project/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "6"
+            endingLineNumber = "6"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0B44A4E9-6EFB-4A4A-B9D7-AD062C02A507"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "gallery-project/NewPasswordVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "NewPasswordVC"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "0B44A4E9-6EFB-4A4A-B9D7-AD062C02A507 - 4aa88f1b307b07ad"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "gallery_project.NewPasswordVC.passwordView.getter : Swift.Optional&lt;__C.UIView&gt;"
+                  moduleName = "gallery-project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ankushsharma/Desktop/Swift%20Training/Training%20Project/gallery-project/gallery-project/NewPasswordVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "85">
+               </Location>
+               <Location
+                  uuid = "0B44A4E9-6EFB-4A4A-B9D7-AD062C02A507 - 3c8662ef30aaafb1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "gallery_project.NewPasswordVC.passwordView.setter : Swift.Optional&lt;__C.UIView&gt;"
+                  moduleName = "gallery-project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ankushsharma/Desktop/Swift%20Training/Training%20Project/gallery-project/gallery-project/NewPasswordVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "0B44A4E9-6EFB-4A4A-B9D7-AD062C02A507 - 6d6653a62b60f1a0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "gallery_project.NewPasswordVC.passwordView.modify : Swift.Optional&lt;__C.UIView&gt;"
+                  moduleName = "gallery-project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ankushsharma/Desktop/Swift%20Training/Training%20Project/gallery-project/gallery-project/NewPasswordVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "0B44A4E9-6EFB-4A4A-B9D7-AD062C02A507 - d84f45eb3ff5789b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "gallery_project.NewPasswordVC.passwordView.modify : Swift.Optional&lt;__C.UIView&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "gallery-project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ankushsharma/Desktop/Swift%20Training/Training%20Project/gallery-project/gallery-project/NewPasswordVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  uuid = "0B44A4E9-6EFB-4A4A-B9D7-AD062C02A507 - d99d3180cff4c98f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "gallery_project.NewPasswordVC.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; gallery_project.NewPasswordVC"
+                  moduleName = "gallery-project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ankushsharma/Desktop/Swift%20Training/Training%20Project/gallery-project/gallery-project/NewPasswordVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "157">
+               </Location>
+               <Location
+                  uuid = "0B44A4E9-6EFB-4A4A-B9D7-AD062C02A507 - ae5448aa3c1043cb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "gallery_project.NewPasswordVC.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;gallery_project.NewPasswordVC&gt;"
+                  moduleName = "gallery-project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ankushsharma/Desktop/Swift%20Training/Training%20Project/gallery-project/gallery-project/NewPasswordVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "114">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
