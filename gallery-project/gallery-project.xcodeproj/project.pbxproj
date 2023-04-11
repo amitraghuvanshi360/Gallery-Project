@@ -10,6 +10,8 @@
 		021D465729E3F07300CC0201 /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021D465629E3F07300CC0201 /* SignupVC.swift */; };
 		021D465A29E4412900CC0201 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021D465929E4412900CC0201 /* Constant.swift */; };
 		021D465D29E4417D00CC0201 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021D465C29E4417D00CC0201 /* APIRequest.swift */; };
+		023298A229E5282500AEFBAF /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023298A129E5282500AEFBAF /* Validation.swift */; };
+		023298A429E531C800AEFBAF /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023298A329E531C800AEFBAF /* AlertController.swift */; };
 		0233522D29DEF5AB003BC72A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233522C29DEF5AB003BC72A /* AppDelegate.swift */; };
 		0233522F29DEF5AB003BC72A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233522E29DEF5AB003BC72A /* SceneDelegate.swift */; };
 		0233523129DEF5AB003BC72A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233523029DEF5AB003BC72A /* ViewController.swift */; };
@@ -46,6 +48,8 @@
 		021D465629E3F07300CC0201 /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
 		021D465929E4412900CC0201 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		021D465C29E4417D00CC0201 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		023298A129E5282500AEFBAF /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		023298A329E531C800AEFBAF /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		0233522929DEF5AB003BC72A /* gallery-project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gallery-project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0233522C29DEF5AB003BC72A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0233522E29DEF5AB003BC72A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,11 +138,11 @@
 				023CAB3329DFD8CA00215271 /* Utility */,
 				0233522C29DEF5AB003BC72A /* AppDelegate.swift */,
 				0233522E29DEF5AB003BC72A /* SceneDelegate.swift */,
-				0233523029DEF5AB003BC72A /* ViewController.swift */,
 				0233523229DEF5AB003BC72A /* Main.storyboard */,
 				0233523529DEF5AD003BC72A /* Assets.xcassets */,
 				0233523729DEF5AD003BC72A /* LaunchScreen.storyboard */,
 				0233523A29DEF5AD003BC72A /* Info.plist */,
+				0233523029DEF5AB003BC72A /* ViewController.swift */,
 				023CAB3629DFF07500215271 /* LoginVC.swift */,
 				021D465629E3F07300CC0201 /* SignupVC.swift */,
 				023CAB3829E0196300215271 /* ForgetPasswordVC.swift */,
@@ -168,6 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				023CAB3429DFD8E700215271 /* Utility.swift */,
+				023298A129E5282500AEFBAF /* Validation.swift */,
+				023298A329E531C800AEFBAF /* AlertController.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -305,7 +311,9 @@
 			files = (
 				021D465729E3F07300CC0201 /* SignupVC.swift in Sources */,
 				023CAB3529DFD8E700215271 /* Utility.swift in Sources */,
+				023298A229E5282500AEFBAF /* Validation.swift in Sources */,
 				021D465A29E4412900CC0201 /* Constant.swift in Sources */,
+				023298A429E531C800AEFBAF /* AlertController.swift in Sources */,
 				023CAB3B29E02B9800215271 /* NewPasswordVC.swift in Sources */,
 				0233523129DEF5AB003BC72A /* ViewController.swift in Sources */,
 				0233522D29DEF5AB003BC72A /* AppDelegate.swift in Sources */,

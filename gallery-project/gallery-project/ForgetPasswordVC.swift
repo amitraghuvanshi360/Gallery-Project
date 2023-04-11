@@ -17,7 +17,7 @@ class ForgetPasswordVC: UIViewController{
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
 
-        self.passwordView.layer.borderColor = ButtonColor.defaultColor.cgColor
+        self.passwordView.layer.borderColor = ColorCode.defaultColor.cgColor
         self.passwordView.layer.borderWidth = 1
         self.passwordView.layer.cornerRadius = 20
         self.resetPasswordBttn.layer.cornerRadius = 20
@@ -29,6 +29,7 @@ class ForgetPasswordVC: UIViewController{
     
     
     @IBAction func backButtonAction(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
     
 }
