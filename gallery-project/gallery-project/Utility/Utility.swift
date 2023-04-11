@@ -13,8 +13,8 @@ struct ColorCode{
 //    App initial colour
     static let darkblue = UIColor(red: 15/255.0, green: 21/255.0, blue: 42/255.0, alpha: 1)
     static let lightBlue = UIColor(red: 245/255.0, green: 246/255.0, blue: 250/255.0, alpha: 1)
-    static let defaultColor =  UIColor(red: 201/255.0, green: 205/255.0, blue: 214/255.0, alpha: 1)
-
+    static let defaultColor =  UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1)
+    static let profileColor = UIColor(red: 245/255.0, green: 246/255.0, blue: 250/255.0, alpha: 1)
 }
 
 

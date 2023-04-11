@@ -37,7 +37,7 @@ extension ViewController{
 //        MARK: Button style
         self.startedButton.layer.cornerRadius = 25
 
-//        profile style
+//       MARK: Profile style
         self.profileView.layer.cornerRadius = min(self.profileView.frame.size.height, self.profileView.frame.size.width) / 2.0
         self.profileView.clipsToBounds = true
 
