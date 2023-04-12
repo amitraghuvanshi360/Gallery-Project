@@ -9,22 +9,30 @@ import Foundation
 import UIKit
 
 
-class LoginVC: UIViewController{
-    
+class LoginVC: BaseViewController{
+
 //    var isEnable:Bool = false
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var continueButton: UIButton!
-    @IBOutlet weak var eyeButton: UIButton!
-    @IBOutlet weak var emailView: UIView!
-    @IBOutlet weak var passwordView: UIView!
-    @IBOutlet weak var signupButton: UIButton!
+    @IBOutlet private weak var eyeButton: UIButton!
+    @IBOutlet private weak var emailView: UIView!
+    @IBOutlet private weak var passwordView: UIView!
+    @IBOutlet private weak var signupButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         self.initialLayout()
         
+        APIMAnager.LoginRequestAPI{
+            data in
+            print(data)
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     
@@ -52,31 +60,24 @@ class LoginVC: UIViewController{
         guard let email = userEmail, let password = userPassword  else{
             return
         }
-        let error = self.validateInputData(useremail: email , userpassword: password)
+        let error = Validation.validateInputData(useremail: email , userpassword: password)
         if !error.isEmpty{
             AlertController.CreateAlertMessage(title: Constant.error, message: error, viewController: self)
         }
-    }
-    
-}
+        
+        
 
-// MARK: TextField delegate methods
-extension LoginVC : UITextFieldDelegate{
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
-                nextField.becomeFirstResponder()
-            } else {
-                textField.resignFirstResponder()
-                return true;
-            }
-            return false
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
+
 
 //    MARK: Layout styling
 extension LoginVC{
-
+    
+//    MARK: Set initial layout
     func initialLayout(){
         self.emailView.layer.cornerRadius = 20
         self.passwordView.layer.cornerRadius = 20
@@ -100,25 +101,6 @@ extension LoginVC{
             self.eyeButton.isSelected = true
         }
     }
-    
-//    MARK: field validations
-    func validateInputData(useremail: String , userpassword: String) ->String {
-            var errorMessage: String = ""
-            if useremail.isEmpty {
-                errorMessage = Constant.isEmailEmpty
-                return errorMessage
-            }else if !Validation.isValidEmailAddress(email: useremail){
-                errorMessage = Constant.enteredInvalidEmail
-                return errorMessage
-            }else if userpassword.isEmpty {
-                errorMessage = Constant.enterPassword
-                return errorMessage
-            }else if userpassword.count < 6 {
-                errorMessage = Constant.isPasswordShort
-                return errorMessage
-            }
-        return ""
-        } // function end
     
 } // extension end
 
