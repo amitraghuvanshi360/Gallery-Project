@@ -10,6 +10,8 @@ import Foundation
 
 struct Constant{
     
+    static let BASE_URL = "https://192.168.0.231:7184/"
+    
     static let ok = "Ok"
     static let done = "Done"
     static let error = "Error"
@@ -24,6 +26,8 @@ struct Constant{
     static let enterMobile = "Please enter your mobile number"
     static let isMobileEntered = "Entered mobile number is invalid"
     static let isMobileLength = "Entered mobile number must be 10 digits"
+    static let isHobbyEmpty = "Enter your hobbies"
+    static let isHobbyShort = "Hobbies must contain atleast 3 characters"
     static let isEmailEmpty = "You haven't entered any email"
     static let isPasswordEmpty = "You haven't entered any password"
     static let isPasswordShort = "Entered password length is too short it should have atleast 6 characters"

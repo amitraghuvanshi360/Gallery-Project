@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class NewPasswordVC: UIViewController{
+class NewPasswordVC: BaseViewController{
     
     @IBOutlet private weak var passwordView: UIView!
     @IBOutlet private weak var confirmPasswordView: UIView!
@@ -47,3 +47,4 @@ extension NewPasswordVC{
         
     } // function end
 } // extension end
+

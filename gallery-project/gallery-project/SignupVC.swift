@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class SignupVC: UIViewController, UINavigationControllerDelegate{
+class SignupVC: BaseViewController, UINavigationControllerDelegate {
     
     let picker = UIImagePickerController()
 
@@ -32,16 +32,23 @@ class SignupVC: UIViewController, UINavigationControllerDelegate{
     
     @IBOutlet private weak var genderView: UIView!
     
+    @IBOutlet weak var genderMaleBttn: UIButton!
+    @IBOutlet weak var genderFemaleBttn: UIButton!
+    @IBOutlet weak var genderOtherBttn: UIButton!
+    
+    
     @IBOutlet private weak var hobbyView: UIView!
     @IBOutlet private weak var hobbyTextField: UITextView!
     @IBOutlet private weak var continueBttn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.selectProfileImage))
-        pickProfileImage.addGestureRecognizer(tapGestureRecognizer)
-        pickProfileImage.isUserInteractionEnabled = true
         self.setInitialLayout()
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.profileOnTapGesture()
+
     }
     
     @IBAction func backButtonAction(_ sender: Any) {
@@ -54,14 +61,37 @@ class SignupVC: UIViewController, UINavigationControllerDelegate{
         let userEmail = self.emailTextField.text
         let userPassword = self.passwordTextField.text
         let mobileNumber = self.mobileTextField.text
-        guard  let name = userName, let email = userEmail, let password = userPassword, let mobile = mobileNumber else{
+        let hobby = self.hobbyTextField.text
+        guard  let name = userName, let email = userEmail, let password = userPassword, let mobile = mobileNumber, let hobbies = hobby else{
             return
         }
-        let error = self.validateInputData(name: name, email: email, password: password, mobile: mobile)
+        let error = Validation.validateInputData(name: name, email: email, password: password, mobile: mobile , hobbies: hobbies)
         if !error.isEmpty{
             AlertController.CreateAlertMessage(title: Constant.error, message: error, viewController: self)
         }
     }
+    
+    @IBAction func genderButtonAction(_ sender: UIButton) {
+        self.genderMaleBttn.isSelected = false
+        self.genderFemaleBttn.isSelected = false
+        self.genderFemaleBttn.isSelected = false
+        self.genderMaleBttn.setImage(UIImage(named: "unselected"), for: .normal)
+        self.genderFemaleBttn.setImage(UIImage(named: "unselected"), for: .normal)
+        self.genderOtherBttn.setImage(UIImage(named: "unselected"), for: .normal)
+
+        if !sender.isSelected{
+            sender.setImage(UIImage(named: "record"), for: .normal)
+            sender.isSelected = true
+            print(sender.isSelected)
+            return
+        }else{
+            sender.setImage(UIImage(named: "unselected"), for: .normal)
+            sender.isSelected = false
+            print(sender.isSelected)
+            return
+        }
+    }
+    
 }
 
 extension SignupVC {
@@ -106,47 +136,6 @@ extension SignupVC {
         self.hobbyTextField.text = "Placeholder"
     }
     
-//    MARK: Validating input data
-    func validateInputData(name: String, email: String , password: String , mobile: String) -> String{
-        var errorMessage: String = ""
-        if name.isEmpty {
-            errorMessage = Constant.enterName
-            return errorMessage
-        }else if name.count < 3{
-            errorMessage = Constant.isNameShort
-            return errorMessage
-        }
-        
-        else if email.isEmpty{
-            errorMessage = Constant.isEmailEmpty
-            return errorMessage
-        }
-        else if !Validation.isValidEmailAddress(email: email){
-            errorMessage = Constant.enteredInvalidEmail
-            return errorMessage
-        }
-        
-        else if password.isEmpty {
-            errorMessage = Constant.enterPassword
-            return errorMessage
-        }else if password.count < 6 {
-            errorMessage = Constant.isPasswordShort
-        }
-        
-        else if mobile.isEmpty {
-            errorMessage = Constant.enterMobile
-            return errorMessage
-        }else if mobile.count < 10 {
-            errorMessage = Constant.isMobileLength
-            return errorMessage
-        }else if mobile.count > 10 {
-            errorMessage = Constant.isMobileEntered
-            return errorMessage
-        }
-        
-        return errorMessage
-    } //end validation func validation  body
-    
     
 //    MARK: select profile image
     @objc func selectProfileImage(){
@@ -157,24 +146,14 @@ extension SignupVC {
         present(picker, animated: true, completion: nil)
         
     }
-} // end extension body
-
-
-
-
-// MARK: TextField delegate methods
-extension SignupVC : UITextFieldDelegate{
     
-     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
-                nextField.becomeFirstResponder()
-            } else {
-                textField.resignFirstResponder()
-                return true;
-            }
-            return false
+   private func profileOnTapGesture(){
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.selectProfileImage))
+        pickProfileImage.addGestureRecognizer(tapGestureRecognizer)
+        pickProfileImage.isUserInteractionEnabled = true
     }
-}
+ 
+} // end extension body
 
 
 extension SignupVC: UIImagePickerControllerDelegate {
@@ -185,4 +164,5 @@ extension SignupVC: UIImagePickerControllerDelegate {
             pickProfileImage.image =  image
         }
     }
-}
+    
+} // extension end body

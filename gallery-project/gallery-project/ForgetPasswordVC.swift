@@ -16,13 +16,19 @@ class ForgetPasswordVC: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
-
         self.passwordView.layer.borderColor = ColorCode.defaultColor.cgColor
         self.passwordView.layer.borderWidth = 1
         self.passwordView.layer.cornerRadius = 20
         self.resetPasswordBttn.layer.cornerRadius = 20
     }
     @IBAction func resetPasswordAction(_ sender: Any) {
+        
+        guard let emailId = self.emailTextField.text else{
+            return
+        }
+        if !Validation.isValidEmailAddress(email: emailId){
+            AlertController.CreateAlertMessage(title: Constant.error, message: Constant.enteredInvalidEmail, viewController: self)
+        }
         let moveToNextVC = self.storyboard?.instantiateViewController(withIdentifier: "NewPasswordVC") as! NewPasswordVC
         self.navigationController?.pushViewController(moveToNextVC, animated: true)
     }
