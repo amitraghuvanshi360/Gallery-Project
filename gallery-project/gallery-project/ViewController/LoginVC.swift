@@ -11,7 +11,7 @@ import UIKit
 
 class LoginVC: BaseViewController{
 
-//    var isEnable:Bool = false
+    //    MARK: - IBOutlets
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var continueButton: UIButton!
@@ -20,41 +20,41 @@ class LoginVC: BaseViewController{
     @IBOutlet private weak var passwordView: UIView!
     @IBOutlet private weak var signupButton: UIButton!
     
+
+    //MARK: - View life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         self.initialLayout()
         
-        APIMAnager.LoginRequestAPI{
-            data in
-            print(data)
-        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     
-    
-//    MARK: Move to next controller SignupVC
+    //MARK: - IB Button Actions
+
     @IBAction func moveToSignup(_ sender: Any) {
        let vc =  self.storyboard?.instantiateViewController(withIdentifier: "SignupVC") as! SignupVC
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-//    MARK: Forget password Action
+
     @IBAction func forgetPasswordAction(_ sender: Any) {
         let moveToNext = self.storyboard?.instantiateViewController(withIdentifier: "ForgetPasswordVC") as! ForgetPasswordVC
         self.navigationController?.pushViewController(moveToNext, animated: true)
     }
     
-//    MARK: Password hide show action
+
     @IBAction func passwordHideShowAction(_ sender: Any) {
         self.passwordViewAction()
     }
     
-//    MARK: Login Action button and validating fields
+
     @IBAction func LoginButtonAction(_ sender: Any) {
+        
         let userEmail = self.emailTextField.text
         let userPassword = self.passwordTextField.text
         guard let email = userEmail, let password = userPassword  else{
@@ -64,12 +64,15 @@ class LoginVC: BaseViewController{
         if !error.isEmpty{
             AlertController.CreateAlertMessage(title: Constant.error, message: error, viewController: self)
         }
-        
-        
 
-        
+
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         self.navigationController?.pushViewController(vc, animated: true)
+        
+        APIMAnager.LoginRequestAPI{
+            data in
+            print(data)
+        }
     }
 }
 

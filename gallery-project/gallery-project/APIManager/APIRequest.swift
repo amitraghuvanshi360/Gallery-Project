@@ -8,15 +8,15 @@
 import Foundation
 
 
-struct API{
-    
+struct APIUrls {
+    static let UserLogin = "api/Authorization/Login"
 }
 
-class APIMAnager : BaseViewController{
-    static let UserLogin = "api/Authorization/Login"
+class APIMAnager : NSObject {
+    
     
     class func LoginRequestAPI(completion:@escaping (User?) -> Void){
-        let base_url = "\(Constant.BASE_URL)\(UserLogin)"
+        let base_url = "\(Constant.BASE_URL)\(APIUrls.UserLogin)"
         guard let url = URL.init(string: base_url) else {
             return
         }
@@ -33,11 +33,11 @@ class APIMAnager : BaseViewController{
                 print(errors.localizedDescription)
             }
             
-            guard let dataUnwarpped = data else {
+            guard let getdata = data else {
                 print("Error in Data")
                 return
             }
-            if let dataObj = try? JSONDecoder().decode(User.self, from: dataUnwarpped ) {
+            if let dataObj = try? JSONDecoder().decode(User.self, from: getdata ) {
                 completion(dataObj)
             }
         }).resume()

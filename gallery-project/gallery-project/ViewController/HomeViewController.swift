@@ -1,37 +1,37 @@
 //
-//  HomeViewController.swift
+//  HomeVC.swift
 //  gallery-project
 //
-//  Created by Ankush Sharma on 12/04/23.
+//  Created by Ankush Sharma on 13/04/23.
 //
 
-import Foundation
+
 import UIKit
 
 class HomeViewController: UIViewController{
-    @IBOutlet weak var collectionView: UICollectionView!
+
+    @IBOutlet private weak var contentView: UIView!
+    @IBOutlet private weak var collectionView: UICollectionView!
+    
     var imageData = [UIImage(named: "dear"), UIImage(named: "eagle"), UIImage(named: "horse"),UIImage(named: "parrot"),UIImage(named: "tiger"),UIImage(named: "dear"), UIImage(named: "eagle"), UIImage(named: "horse"),UIImage(named: "parrot"),UIImage(named: "tiger"),UIImage(named: "dear"), UIImage(named: "eagle"), UIImage(named: "horse"),UIImage(named: "parrot"),UIImage(named: "tiger")]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        self.setLayout()
     }
+    
 }
 
 
+// MARK: CollectionView delegate methods
 extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imageData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomViewCell", for: indexPath) as! CustomViewCell
-        UICollectionView.animate(withDuration: 8000, delay: 20000,
-                       options: [.repeat, .autoreverse , .curveEaseOut], animations: {
-          
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
 
-            }, completion: nil)
-        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         cell.setImageData(image: imageData[indexPath.row]!)
         return cell
     
@@ -40,13 +40,26 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
     
 }
 
+// MARK: Initial layout setup
+extension HomeViewController{
+    func setLayout(){
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        self.contentView.layer.cornerRadius = 20
+        self.contentView.layer.borderColor = ColorCode.greenColor.cgColor
+        
+    }
+}
 
-class CustomViewCell : UICollectionViewCell{
-    @IBOutlet weak var imageView: UIView!
-    @IBOutlet weak var profileView: UIImageView!
-    
-    
+
+// MARK: Collection view cell class
+
+class CollectionViewCell : UICollectionViewCell{
+
+    @IBOutlet private weak var imageView: UIImageView!
+
     func setImageData(image: UIImage){
-        self.profileView.image = image
+        self.imageView.image = image
     }
 }

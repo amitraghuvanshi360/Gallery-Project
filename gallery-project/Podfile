@@ -7,7 +7,8 @@ target 'gallery-project' do
 
   # Pods for gallery-project
   pod 'IQKeyboardManagerSwift'
-
+  pod "iOSDropDown"
+  
   target 'gallery-projectTests' do
     inherit! :search_paths
     # Pods for testing

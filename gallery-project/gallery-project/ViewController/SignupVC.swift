@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import iOSDropDown
 
 class SignupVC: BaseViewController, UINavigationControllerDelegate {
     
@@ -28,21 +29,33 @@ class SignupVC: BaseViewController, UINavigationControllerDelegate {
     @IBOutlet private weak var mobileTextField: UITextField!
     
     @IBOutlet private weak var countryView: UIView!
-    @IBOutlet private weak var countryTextField: UITextField!
+    @IBOutlet private weak var countryTextField: DropDown!
     
     @IBOutlet private weak var genderView: UIView!
     
-    @IBOutlet weak var genderMaleBttn: UIButton!
-    @IBOutlet weak var genderFemaleBttn: UIButton!
-    @IBOutlet weak var genderOtherBttn: UIButton!
+    @IBOutlet private weak var genderMaleBttn: UIButton!
+    @IBOutlet private  weak var genderFemaleBttn: UIButton!
+    @IBOutlet private weak var genderOtherBttn: UIButton!
     
     
     @IBOutlet private weak var hobbyView: UIView!
-    @IBOutlet private weak var hobbyTextField: UITextView!
+    @IBOutlet private weak var hobbyTxtVw: UITextView!
     @IBOutlet private weak var continueBttn: UIButton!
+    
+    //MARK: - View life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setInitialLayout()
+       
+        let countries : [String] = NSLocale.isoCountryCodes.map { (code:String) -> String in
+                let id = NSLocale.localeIdentifier(fromComponents: [NSLocale.Key.countryCode.rawValue: code])
+                return NSLocale(localeIdentifier: "en_US").displayName(forKey: NSLocale.Key.identifier, value: id) ?? "Country not found for code: \(code)"
+            }
+        self.countryTextField.optionArray = countries
+        countryTextField.didSelect{(selectedText , index ,id) in
+        self.countryTextField.text = "Selected String: \(selectedText) \n index: \(index)"
+        }
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -51,6 +64,7 @@ class SignupVC: BaseViewController, UINavigationControllerDelegate {
 
     }
     
+    //MARK: - IB Button Actions
     @IBAction func backButtonAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -61,7 +75,7 @@ class SignupVC: BaseViewController, UINavigationControllerDelegate {
         let userEmail = self.emailTextField.text
         let userPassword = self.passwordTextField.text
         let mobileNumber = self.mobileTextField.text
-        let hobby = self.hobbyTextField.text
+        let hobby = self.hobbyTxtVw.text
         guard  let name = userName, let email = userEmail, let password = userPassword, let mobile = mobileNumber, let hobbies = hobby else{
             return
         }
@@ -74,7 +88,7 @@ class SignupVC: BaseViewController, UINavigationControllerDelegate {
     @IBAction func genderButtonAction(_ sender: UIButton) {
         self.genderMaleBttn.isSelected = false
         self.genderFemaleBttn.isSelected = false
-        self.genderFemaleBttn.isSelected = false
+        self.genderOtherBttn.isSelected = false
         self.genderMaleBttn.setImage(UIImage(named: "unselected"), for: .normal)
         self.genderFemaleBttn.setImage(UIImage(named: "unselected"), for: .normal)
         self.genderOtherBttn.setImage(UIImage(named: "unselected"), for: .normal)
@@ -106,57 +120,42 @@ extension SignupVC {
         self.pickProfileImage.layer.cornerRadius = min(self.profileView.frame.size.height, self.pickProfileImage.frame.size.width) / 2.0
         self.pickProfileImage.clipsToBounds = true
         
-        self.nameView.layer.borderWidth = 1
-        self.nameView.layer.borderColor = ColorCode.defaultColor.cgColor
-        self.nameView.layer.cornerRadius = 25
+        self.nameView.setLayoutForSignUp()
+        self.emailView.setLayoutForSignUp()
+        self.passwordView.setLayoutForSignUp()
+        self.mobileView.setLayoutForSignUp()
+        self.countryView.setLayoutForSignUp(cornerRadius: 10.0)
+        self.hobbyView.setLayoutForSignUp(cornerRadius: 10.0)
         
-        self.emailView.layer.borderWidth = 1
-        self.emailView.layer.borderColor = ColorCode.defaultColor.cgColor
-        self.emailView.layer.cornerRadius = 25
-        
-        self.passwordView.layer.borderWidth = 1
-        self.passwordView.layer.borderColor = ColorCode.defaultColor.cgColor
-        self.passwordView.layer.cornerRadius = 25
-        
-        self.mobileView.layer.borderWidth = 1
-        self.mobileView.layer.borderColor = ColorCode.defaultColor.cgColor
-        self.mobileView.layer.cornerRadius = 25
-        
-        self.countryView.layer.borderWidth = 1
-        self.countryView.layer.borderColor = ColorCode.defaultColor.cgColor
-        self.countryView.layer.cornerRadius = 10
-        
-        self.hobbyView.layer.borderWidth = 1
-        self.hobbyView.layer.borderColor = ColorCode.defaultColor.cgColor
-        self.hobbyView.layer.cornerRadius = 10
-     
         self.continueBttn.layer.cornerRadius = 25
         self.continueBttn.layer.borderColor = ButtonColor.defaultColor.cgColor
         
-        self.hobbyTextField.text = "Placeholder"
+        self.hobbyTxtVw.text = "Enter your Hobbies here"
+        self.hobbyTxtVw.textColor = .lightGray
+        self.hobbyTxtVw.delegate = self
     }
-    
-    
-//    MARK: select profile image
-    @objc func selectProfileImage(){
-//        if picker.isSourceTypeAvailable(.photoLibrary){
-        picker.delegate = self
-        picker.sourceType = .photoLibrary
-        picker.allowsEditing = false
-        present(picker, animated: true, completion: nil)
-        
-    }
-    
-   private func profileOnTapGesture(){
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.selectProfileImage))
-        pickProfileImage.addGestureRecognizer(tapGestureRecognizer)
-        pickProfileImage.isUserInteractionEnabled = true
-    }
- 
+   
 } // end extension body
 
 
+
 extension SignupVC: UIImagePickerControllerDelegate {
+    
+    
+    //    MARK: select profile image
+        @objc func selectProfileImage() {
+            picker.delegate = self
+            picker.sourceType = .photoLibrary
+            picker.allowsEditing = false
+            present(picker, animated: true, completion: nil)
+            
+        }
+        
+       private func profileOnTapGesture(){
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.selectProfileImage))
+            pickProfileImage.addGestureRecognizer(tapGestureRecognizer)
+            pickProfileImage.isUserInteractionEnabled = true
+        }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
@@ -166,3 +165,26 @@ extension SignupVC: UIImagePickerControllerDelegate {
     }
     
 } // extension end body
+
+
+extension SignupVC: UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "Enter your Hobbies here" {
+            self.hobbyTxtVw.text = ""
+            self.hobbyTxtVw.textColor = .black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            self.hobbyTxtVw.text = "Enter your Hobbies here"
+            self.hobbyTxtVw.textColor = .lightGray
+        }
+    }
+    
+    
+}
+
+
+
