@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		021BB88B29E7C5F7007C4965 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021BB88A29E7C5F7007C4965 /* Extensions.swift */; };
+		021BB89229E825E1007C4965 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021BB89129E825E1007C4965 /* HomeViewController.swift */; };
 		021D465729E3F07300CC0201 /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021D465629E3F07300CC0201 /* SignupVC.swift */; };
 		021D465A29E4412900CC0201 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021D465929E4412900CC0201 /* Constant.swift */; };
 		021D465D29E4417D00CC0201 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021D465C29E4417D00CC0201 /* APIRequest.swift */; };
 		021E79CC29E6895600F9345A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021E79CB29E6895600F9345A /* BaseViewController.swift */; };
-		021E79CE29E6BDCC00F9345A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021E79CD29E6BDCC00F9345A /* HomeViewController.swift */; };
 		021E79D129E6DCA500F9345A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021E79D029E6DCA500F9345A /* UserModel.swift */; };
 		023298A229E5282500AEFBAF /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023298A129E5282500AEFBAF /* Validation.swift */; };
 		023298A429E531C800AEFBAF /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023298A329E531C800AEFBAF /* AlertController.swift */; };
@@ -51,11 +52,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		021BB88A29E7C5F7007C4965 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		021BB89129E825E1007C4965 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		021D465629E3F07300CC0201 /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
 		021D465929E4412900CC0201 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		021D465C29E4417D00CC0201 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		021E79CB29E6895600F9345A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		021E79CD29E6BDCC00F9345A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		021E79D029E6DCA500F9345A /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		023298A129E5282500AEFBAF /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		023298A329E531C800AEFBAF /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		021BB88C29E805B3007C4965 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0233523029DEF5AB003BC72A /* ViewController.swift */,
+				023CAB3629DFF07500215271 /* LoginVC.swift */,
+				021D465629E3F07300CC0201 /* SignupVC.swift */,
+				023CAB3829E0196300215271 /* ForgetPasswordVC.swift */,
+				023CAB3A29E02B9800215271 /* NewPasswordVC.swift */,
+				021E79CB29E6895600F9345A /* BaseViewController.swift */,
+				021BB89129E825E1007C4965 /* HomeViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		021D465829E4411600CC0201 /* Global */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,19 +184,13 @@
 				021D465B29E4416700CC0201 /* APIManager */,
 				021D465829E4411600CC0201 /* Global */,
 				023CAB3329DFD8CA00215271 /* Utility */,
+				021BB88C29E805B3007C4965 /* ViewController */,
 				0233522C29DEF5AB003BC72A /* AppDelegate.swift */,
 				0233522E29DEF5AB003BC72A /* SceneDelegate.swift */,
 				0233523229DEF5AB003BC72A /* Main.storyboard */,
 				0233523529DEF5AD003BC72A /* Assets.xcassets */,
 				0233523729DEF5AD003BC72A /* LaunchScreen.storyboard */,
 				0233523A29DEF5AD003BC72A /* Info.plist */,
-				0233523029DEF5AB003BC72A /* ViewController.swift */,
-				023CAB3629DFF07500215271 /* LoginVC.swift */,
-				021D465629E3F07300CC0201 /* SignupVC.swift */,
-				023CAB3829E0196300215271 /* ForgetPasswordVC.swift */,
-				023CAB3A29E02B9800215271 /* NewPasswordVC.swift */,
-				021E79CB29E6895600F9345A /* BaseViewController.swift */,
-				021E79CD29E6BDCC00F9345A /* HomeViewController.swift */,
 			);
 			path = "gallery-project";
 			sourceTree = "<group>";
@@ -208,6 +218,7 @@
 				023CAB3429DFD8E700215271 /* Utility.swift */,
 				023298A129E5282500AEFBAF /* Validation.swift */,
 				023298A329E531C800AEFBAF /* AlertController.swift */,
+				021BB88A29E7C5F7007C4965 /* Extensions.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -479,12 +490,13 @@
 				023CAB3529DFD8E700215271 /* Utility.swift in Sources */,
 				023298A229E5282500AEFBAF /* Validation.swift in Sources */,
 				021D465A29E4412900CC0201 /* Constant.swift in Sources */,
-				021E79CE29E6BDCC00F9345A /* HomeViewController.swift in Sources */,
+				021BB89229E825E1007C4965 /* HomeViewController.swift in Sources */,
 				023298A429E531C800AEFBAF /* AlertController.swift in Sources */,
 				023CAB3B29E02B9800215271 /* NewPasswordVC.swift in Sources */,
 				0233523129DEF5AB003BC72A /* ViewController.swift in Sources */,
 				0233522D29DEF5AB003BC72A /* AppDelegate.swift in Sources */,
 				0233522F29DEF5AB003BC72A /* SceneDelegate.swift in Sources */,
+				021BB88B29E7C5F7007C4965 /* Extensions.swift in Sources */,
 				023CAB3929E0196300215271 /* ForgetPasswordVC.swift in Sources */,
 				021D465D29E4417D00CC0201 /* APIRequest.swift in Sources */,
 				021E79D129E6DCA500F9345A /* UserModel.swift in Sources */,
