@@ -16,3 +16,11 @@ extension UIView {
         self.layer.cornerRadius = cornerRadius
     }
 }
+
+
+extension UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let size = (collectionView.frame.size.width - 10) / 2
+        return CGSize(width: size, height: size)
+    }
+}
