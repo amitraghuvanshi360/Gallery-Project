@@ -17,7 +17,9 @@ class NewPasswordVC: BaseViewController{
     @IBOutlet private weak var confirmPassField: UITextField!
     @IBOutlet private weak var setNewPassword: UIButton!
 
-    @IBOutlet private weak var passwordVisibilityBttn: UIButton!
+    @IBOutlet weak var eyeButton1: UIButton!
+    @IBOutlet private weak var eyeButton2: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
@@ -40,8 +42,8 @@ extension NewPasswordVC{
         self.confirmPasswordView.layer.cornerRadius = 25
         self.confirmPasswordView.layer.borderColor = ColorCode.defaultColor.cgColor
 
-        self.passwordVisibilityBttn.layer.cornerRadius = 25
-        self.passwordVisibilityBttn.layer.borderColor = ColorCode.defaultColor.cgColor
+        self.eyeButton1.layer.cornerRadius = 25
+        self.eyeButton1.layer.borderColor = ColorCode.defaultColor.cgColor
         
         self.setNewPassword.layer.cornerRadius = 25
         

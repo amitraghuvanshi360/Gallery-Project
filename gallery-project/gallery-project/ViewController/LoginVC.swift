@@ -8,8 +8,13 @@
 import Foundation
 import UIKit
 
+protocol ValidationProtocol {
+    func validateEmail()
+}
 
-class LoginVC: BaseViewController{
+
+class LoginVC: BaseViewController {
+ 
 
     //    MARK: - IBOutlets
     @IBOutlet private weak var emailTextField: UITextField!
@@ -69,10 +74,10 @@ class LoginVC: BaseViewController{
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         self.navigationController?.pushViewController(vc, animated: true)
         
-        APIMAnager.LoginRequestAPI{
-            data in
-            print(data)
-        }
+//        APIMAnager.LoginRequestAPI{
+//            data in
+//            print(data)
+//        }
     }
 }
 

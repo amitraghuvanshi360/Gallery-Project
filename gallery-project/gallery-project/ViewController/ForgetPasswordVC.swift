@@ -8,7 +8,16 @@
 import Foundation
 import UIKit
 
+protocol GetDataFromForgetPasswordProtocol: AnyObject {
+    
+    func getData(email: String)
+}
+
+
 class ForgetPasswordVC: UIViewController{
+    
+    var completionGetData: ( (String) -> Void )?
+    weak var delegate: GetDataFromForgetPasswordProtocol?
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordView: UIView!
