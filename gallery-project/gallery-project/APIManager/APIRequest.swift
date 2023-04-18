@@ -12,7 +12,7 @@ struct APIUrls {
     static let UserLogin = "api/Authorization/Login"
 }
 
-class APIMAnager : NSObject {
+class APIManager : NSObject {
     
     
     class func LoginRequestAPI(completion:@escaping (User?) -> Void){
@@ -53,4 +53,29 @@ class APIMAnager : NSObject {
         return data.map { String($0) }.joined(separator: "&")
     }
 
+    
+    
+   class func countryListAPI(completion:@escaping (Country?) -> Void){
+        let base_url = "https://api.first.org/data/v1/countries"
+        guard let url = URL.init(string: base_url) else {
+            return
+        }
+        
+        var urlRequest = URLRequest.init(url: url)
+        
+        
+        URLSession.shared.dataTask(with: urlRequest, completionHandler: { data , response , error in
+            if let errors = error {
+                print(errors.localizedDescription)
+            }
+            
+            guard let getdata = data else {
+                print("Error in Data")
+                return
+            }
+            if let dataObj = try? JSONDecoder().decode(Country.self, from: getdata ) {
+                completion(dataObj)
+            }
+        }).resume()
+    }
 }

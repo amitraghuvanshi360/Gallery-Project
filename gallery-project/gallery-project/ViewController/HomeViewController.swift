@@ -24,7 +24,7 @@ class HomeViewController: BaseViewController, UIImagePickerControllerDelegate & 
     @IBOutlet weak var secondCollectionView: UICollectionView!
     
     var imageData: [UIImage] = []
-    var imageDatas = [UIImage(named: "bubble")]
+    var imageDatas = [UIImage(named: "null-data")]
 //                            UIImage(named: "alone"),
 //                            UIImage(named: "home-sea"),
 //                            UIImage(named: "circle-ball"),
@@ -79,7 +79,12 @@ class HomeViewController: BaseViewController, UIImagePickerControllerDelegate & 
 extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.imageData.count + 1
+        if imageData.isEmpty{
+            return 1
+        }
+        else{
+            return imageData.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -87,7 +92,7 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
         if collectionView == self.firstCollectionView{
             let cell1 = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
             if self.imageData.isEmpty{
-                cell1.firstImageVw.image = UIImage(named: "null-data")
+                cell1.firstImageVw.image = UIImage(named: "emptyImage")
                 return cell1
             }
             cell1.setImageData(image: self.imageData[indexPath.row])
@@ -95,30 +100,36 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
         }else{
             let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "SecondViewCell", for: indexPath) as! SecondViewCell
             if self.imageData.isEmpty{
-                cell2.secondImageVw.image = UIImage(named: "null-data")
+                cell2.secondImageVw.image = UIImage(named: "emptyImage")
                 return cell2
             }
             cell2.setImageData(image: self.imageData[indexPath.row])
             return cell2
         }
-        self.firstCollectionView.reloadData()
-        self.secondCollectionView.reloadData()
     }
-}
+} // extension body end
 
+//MARK: Collection view delegate for FlowLayout and cell sizing
 extension HomeViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == self.firstCollectionView{
-            let size = (collectionView.frame.size.width)
-            return CGSize(width: size, height: size)
+            let width = (collectionView.frame.size.width)
+            let height = (collectionView.frame.size.height + 40)
+
+            return CGSize(width: width, height: height)
         }else{
+            if self.imageData.isEmpty{
+                let width = (collectionView.frame.size.width)
+                let height = (collectionView.frame.size.width + 40)/2
+                return CGSize(width: width, height: height)
+            }
             let height = (collectionView.frame.size.width + 20) / 2
             let width = (collectionView.frame.size.width - 10) / 2
             return CGSize(width: width, height: height)
         }
-    }
+    } // function body end
     
-}
+} // extension body end
 
 // MARK: Initial layout setup
 extension HomeViewController{

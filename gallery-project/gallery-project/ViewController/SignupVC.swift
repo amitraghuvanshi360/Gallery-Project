@@ -10,17 +10,18 @@ import UIKit
 import iOSDropDown
 
 class SignupVC: BaseViewController, UINavigationControllerDelegate {
-    
+    private var country: Country?
+    private var countrydata: [countryData]? = []
     let picker = UIImagePickerController()
 
     @IBOutlet private weak var profileView: UIView!
-    @IBOutlet weak var pickProfileImage: UIImageView!
+    @IBOutlet private weak var pickProfileImage: UIImageView!
     
     @IBOutlet private weak var nameView: UIView!
     @IBOutlet private weak var nameTextField: UITextField!
     
     @IBOutlet private weak var emailView: UIView!
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet private weak var emailTextField: UITextField!
     
     @IBOutlet private weak var passwordView: UIView!
     @IBOutlet private weak var passwordTextField: UITextField!
@@ -38,24 +39,19 @@ class SignupVC: BaseViewController, UINavigationControllerDelegate {
     @IBOutlet private weak var genderOtherBttn: UIButton!
     
     
+    @IBOutlet private weak var hobbyTextField: DropDown!
     @IBOutlet private weak var hobbyView: UIView!
-    @IBOutlet private weak var hobbyTxtVw: UITextView!
     @IBOutlet private weak var continueBttn: UIButton!
     
     //MARK: - View life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setInitialLayout()
-       
-        let countries : [String] = NSLocale.isoCountryCodes.map { (code:String) -> String in
-                let id = NSLocale.localeIdentifier(fromComponents: [NSLocale.Key.countryCode.rawValue: code])
-                return NSLocale(localeIdentifier: "en_US").displayName(forKey: NSLocale.Key.identifier, value: id) ?? "Country not found for code: \(code)"
-            }
-        self.countryTextField.optionArray = countries
-        countryTextField.didSelect{(selectedText , index ,id) in
-        self.countryTextField.text = "Selected String: \(selectedText) \n index: \(index)"
+        self.setDropDownData()
+        APIManager.countryListAPI{ data in
+            self.country = data as? Country
+            
         }
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -69,13 +65,13 @@ class SignupVC: BaseViewController, UINavigationControllerDelegate {
         self.navigationController?.popViewController(animated: true)
     }
     
+//    MARK: SignUp Button Action
     @IBAction func signupButtonAction(_ sender: Any) {
-        
         let userName = self.nameTextField.text
         let userEmail = self.emailTextField.text
         let userPassword = self.passwordTextField.text
         let mobileNumber = self.mobileTextField.text
-        let hobby = self.hobbyTxtVw.text
+        let hobby = self.hobbyTextField.text
         guard  let name = userName, let email = userEmail, let password = userPassword, let mobile = mobileNumber, let hobbies = hobby else{
             return
         }
@@ -85,6 +81,7 @@ class SignupVC: BaseViewController, UINavigationControllerDelegate {
         }
     }
     
+//    MARK: Gender button action
     @IBAction func genderButtonAction(_ sender: UIButton) {
         self.genderMaleBttn.isSelected = false
         self.genderFemaleBttn.isSelected = false
@@ -130,9 +127,19 @@ extension SignupVC {
         self.continueBttn.layer.cornerRadius = 25
         self.continueBttn.layer.borderColor = ButtonColor.defaultColor.cgColor
         
-        self.hobbyTxtVw.text = "Enter your Hobbies here"
-        self.hobbyTxtVw.textColor = .lightGray
-        self.hobbyTxtVw.delegate = self
+    }
+    
+    
+    func setDropDownData(){
+        self.countryTextField.optionArray = ["India"]
+        countryTextField.didSelect{(selectedText , index ,id) in
+            self.countryTextField.text = "\(selectedText) \n index: \(index)"
+        }
+        self.hobbyTextField.optionArray = ["Singing" , "Dancing" ,"Cooking", "Running", "Painting"]
+        self.hobbyTextField.didSelect{( selectedText , index , id) in
+            self.hobbyTextField.text = "\(selectedText) \n index: \(index)"
+        }
+
     }
    
 } // end extension body
@@ -140,8 +147,6 @@ extension SignupVC {
 
 
 extension SignupVC: UIImagePickerControllerDelegate {
-    
-    
     //    MARK: select profile image
         @objc func selectProfileImage() {
             picker.delegate = self
@@ -150,7 +155,7 @@ extension SignupVC: UIImagePickerControllerDelegate {
             present(picker, animated: true, completion: nil)
             
         }
-        
+//        MARK: Profile tap gesture
        private func profileOnTapGesture(){
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.selectProfileImage))
             pickProfileImage.addGestureRecognizer(tapGestureRecognizer)
@@ -164,27 +169,13 @@ extension SignupVC: UIImagePickerControllerDelegate {
         }
     }
     
+    override func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        var maxLength: Int = 0
+        if textField == self.mobileTextField{
+            maxLength = 10
+        }
+        let currentStr:NSString = textField.text as! NSString
+        let newStr:NSString = currentStr.replacingCharacters(in: range, with: string) as! NSString
+        return newStr.length <= maxLength
+    }
 } // extension end body
-
-
-extension SignupVC: UITextViewDelegate {
-    
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == "Enter your Hobbies here" {
-            self.hobbyTxtVw.text = ""
-            self.hobbyTxtVw.textColor = .black
-        }
-    }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            self.hobbyTxtVw.text = "Enter your Hobbies here"
-            self.hobbyTxtVw.textColor = .lightGray
-        }
-    }
-    
-    
-}
-
-
-

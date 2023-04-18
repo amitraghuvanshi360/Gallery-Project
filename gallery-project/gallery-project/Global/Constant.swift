@@ -10,7 +10,7 @@ import Foundation
 
 struct Constant{
     
-    static let BASE_URL = "https://192.168.0.191:7184/"
+    static let BASE_URL = "https://192.168.0.230:7184/"
     
     static let ok = "Ok"
     static let done = "Done"

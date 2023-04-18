@@ -25,14 +25,24 @@ class LoginVC: BaseViewController {
     @IBOutlet private weak var passwordView: UIView!
     @IBOutlet private weak var signupButton: UIButton!
     
-
+    @IBOutlet weak var forgetpasswordBtton: UIButton!
+    
     //MARK: - View life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         self.initialLayout()
-        
-        
+        let yourAttributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.systemFont(ofSize: 17, weight: .bold),
+             .foregroundColor: UIColor.black,
+             .underlineStyle: NSUnderlineStyle.single.rawValue
+         ]
+       let  attributeString = NSMutableAttributedString(
+                string: "Forgot Password ?",
+                attributes: yourAttributes
+             )
+        forgetpasswordBtton.setAttributedTitle(attributeString, for: .normal)
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -95,6 +105,7 @@ extension LoginVC{
         self.passwordView.layer.borderColor = ColorCode.defaultColor.cgColor
         self.continueButton.layer.cornerRadius = 20
         self.signupButton.layer.cornerRadius = 20
+        
     }
     
 //    MARK: Password Visibility action

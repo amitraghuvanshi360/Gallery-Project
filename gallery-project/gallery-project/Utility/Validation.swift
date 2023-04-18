@@ -91,8 +91,6 @@ class Validation{
         
         else if hobbies.isEmpty {
             errorMessage = Constant.isHobbyEmpty
-        }else if hobbies.count < 3 {
-            errorMessage = Constant.isHobbyShort
         }
         return errorMessage
     } //end validation func validation  body

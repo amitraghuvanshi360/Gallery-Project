@@ -14,7 +14,7 @@
 		021D465D29E4417D00CC0201 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021D465C29E4417D00CC0201 /* APIRequest.swift */; };
 		021E79CC29E6895600F9345A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021E79CB29E6895600F9345A /* BaseViewController.swift */; };
 		021E79D129E6DCA500F9345A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021E79D029E6DCA500F9345A /* UserModel.swift */; };
-		0224263A29ED0D3600DBB653 /* DataArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0224263929ED0D3600DBB653 /* DataArray.swift */; };
+		0224263A29ED0D3600DBB653 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0224263929ED0D3600DBB653 /* Country.swift */; };
 		023298A229E5282500AEFBAF /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023298A129E5282500AEFBAF /* Validation.swift */; };
 		023298A429E531C800AEFBAF /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023298A329E531C800AEFBAF /* AlertController.swift */; };
 		0233522D29DEF5AB003BC72A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233522C29DEF5AB003BC72A /* AppDelegate.swift */; };
@@ -30,6 +30,7 @@
 		023CAB3729DFF07500215271 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CAB3629DFF07500215271 /* LoginVC.swift */; };
 		023CAB3929E0196300215271 /* ForgetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CAB3829E0196300215271 /* ForgetPasswordVC.swift */; };
 		023CAB3B29E02B9800215271 /* NewPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CAB3A29E02B9800215271 /* NewPasswordVC.swift */; };
+		02CC8A5F29EE98F500232A83 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CC8A5E29EE98F500232A83 /* CountryModel.swift */; };
 		C2752249D178CE607E54F0CF /* Pods_gallery_projectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA39C9B4415D351DACE1B573 /* Pods_gallery_projectTests.framework */; };
 		C9749B70B158D77F3B12BE12 /* Pods_gallery_project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32AB62CE66256B5FF4D775A6 /* Pods_gallery_project.framework */; };
 		EAB238F3678022AE8573C8C5 /* Pods_gallery_project_gallery_projectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 891E46DA2E6868165A8E9A29 /* Pods_gallery_project_gallery_projectUITests.framework */; };
@@ -60,7 +61,7 @@
 		021D465C29E4417D00CC0201 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		021E79CB29E6895600F9345A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		021E79D029E6DCA500F9345A /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
-		0224263929ED0D3600DBB653 /* DataArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataArray.swift; sourceTree = "<group>"; };
+		0224263929ED0D3600DBB653 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		023298A129E5282500AEFBAF /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		023298A329E531C800AEFBAF /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		0233522929DEF5AB003BC72A /* gallery-project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gallery-project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +81,7 @@
 		023CAB3629DFF07500215271 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		023CAB3829E0196300215271 /* ForgetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordVC.swift; sourceTree = "<group>"; };
 		023CAB3A29E02B9800215271 /* NewPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordVC.swift; sourceTree = "<group>"; };
+		02CC8A5E29EE98F500232A83 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		1B162F388843C7B91B636B70 /* Pods-gallery-projectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gallery-projectTests.release.xcconfig"; path = "Target Support Files/Pods-gallery-projectTests/Pods-gallery-projectTests.release.xcconfig"; sourceTree = "<group>"; };
 		32AB62CE66256B5FF4D775A6 /* Pods_gallery_project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gallery_project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		891E46DA2E6868165A8E9A29 /* Pods_gallery_project_gallery_projectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gallery_project_gallery_projectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,7 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				021D465929E4412900CC0201 /* Constant.swift */,
-				0224263929ED0D3600DBB653 /* DataArray.swift */,
+				0224263929ED0D3600DBB653 /* Country.swift */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				021E79D029E6DCA500F9345A /* UserModel.swift */,
+				02CC8A5E29EE98F500232A83 /* CountryModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 			files = (
 				021E79CC29E6895600F9345A /* BaseViewController.swift in Sources */,
 				021D465729E3F07300CC0201 /* SignupVC.swift in Sources */,
+				02CC8A5F29EE98F500232A83 /* CountryModel.swift in Sources */,
 				023CAB3529DFD8E700215271 /* Utility.swift in Sources */,
 				023298A229E5282500AEFBAF /* Validation.swift in Sources */,
 				021D465A29E4412900CC0201 /* Constant.swift in Sources */,
@@ -501,7 +505,7 @@
 				0233522F29DEF5AB003BC72A /* SceneDelegate.swift in Sources */,
 				021BB88B29E7C5F7007C4965 /* Extensions.swift in Sources */,
 				023CAB3929E0196300215271 /* ForgetPasswordVC.swift in Sources */,
-				0224263A29ED0D3600DBB653 /* DataArray.swift in Sources */,
+				0224263A29ED0D3600DBB653 /* Country.swift in Sources */,
 				021D465D29E4417D00CC0201 /* APIRequest.swift in Sources */,
 				021E79D129E6DCA500F9345A /* UserModel.swift in Sources */,
 				023CAB3729DFF07500215271 /* LoginVC.swift in Sources */,
