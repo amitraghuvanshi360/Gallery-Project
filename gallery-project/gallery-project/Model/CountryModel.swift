@@ -5,31 +5,18 @@
 //  Created by Ankush Sharma on 18/04/23.
 //
 
+
+// MARK: - CountryElement
 import Foundation
 
-
-struct Country: Codable {
-    let status: String
-    let statusCode: Int
-    let version, access: String
-    let data: [String: countryData]
+struct CountryElement: Codable {
+    let name, dialCode, code: String
 
     enum CodingKeys: String, CodingKey {
-        case status
-        case statusCode = "status-code"
-        case version, access, data
+        case name
+        case dialCode = "dial_code"
+        case code
     }
 }
 
-// MARK: - Datum
-struct countryData: Codable {
-    let country: String
-    let region: Region
-}
-
-enum Region: String, Codable {
-    case africa = "Africa"
-    case antarctic = "Antarctic"
-    case asia = "Asia"
-    case centralAmerica = "Central America"
-}
+typealias Country = [CountryElement]

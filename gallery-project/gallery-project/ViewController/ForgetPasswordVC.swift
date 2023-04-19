@@ -15,7 +15,7 @@ protocol GetDataFromForgetPasswordProtocol: AnyObject {
 
 
 class ForgetPasswordVC: UIViewController{
-    
+    var isFieldShow: Bool = false
     var completionGetData: ( (String) -> Void )?
     weak var delegate: GetDataFromForgetPasswordProtocol?
     
@@ -39,6 +39,7 @@ class ForgetPasswordVC: UIViewController{
             AlertController.CreateAlertMessage(title: Constant.error, message: Constant.enteredInvalidEmail, viewController: self)
         }
         let moveToNextVC = self.storyboard?.instantiateViewController(withIdentifier: "NewPasswordVC") as! NewPasswordVC
+        moveToNextVC.isHideShow = self.isFieldShow
         self.navigationController?.pushViewController(moveToNextVC, animated: true)
     }
     

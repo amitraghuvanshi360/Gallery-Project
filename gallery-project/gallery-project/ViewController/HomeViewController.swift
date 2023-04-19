@@ -23,23 +23,14 @@ class HomeViewController: BaseViewController, UIImagePickerControllerDelegate & 
     @IBOutlet weak var uploadBttn: UIButton!
     @IBOutlet weak var secondCollectionView: UICollectionView!
     
+ 
     var imageData: [UIImage] = []
     var imageDatas = [UIImage(named: "null-data")]
-//                            UIImage(named: "alone"),
-//                            UIImage(named: "home-sea"),
-//                            UIImage(named: "circle-ball"),
-//                            UIImage(named: "dear"),
-//                            UIImage(named: "horse"),
-//                            UIImage(named: "dear"),
-//                            UIImage(named: "horse"),
-//                            UIImage(named: "eagle")
-//    ]
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setLayout()
-//        let timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(imageSlideToNext), userInfo: nil, repeats: true)
+        let timer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(imageSlideToNext), userInfo: nil, repeats: true)
         self.view.setNeedsLayout()
     }
     
@@ -59,7 +50,9 @@ class HomeViewController: BaseViewController, UIImagePickerControllerDelegate & 
             present(imagePicker, animated: true, completion: nil)
         }
     }
-    
+    @IBAction func verifyOTPAction(_ sender: Any) {
+    }
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
@@ -113,19 +106,25 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDataSo
 extension HomeViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == self.firstCollectionView{
-            let width = (collectionView.frame.size.width)
-            let height = (collectionView.frame.size.height + 40)
-
-            return CGSize(width: width, height: height)
+            if self.imageData.isEmpty{
+                let width = (collectionView.frame.size.width)
+                let height = (collectionView.frame.size.height + 40)
+                return CGSize(width: width, height: height)
+            }else{
+                let width = (collectionView.frame.size.width)
+                let height = (collectionView.frame.size.width)
+                return CGSize(width: width, height: height)
+            }
         }else{
             if self.imageData.isEmpty{
                 let width = (collectionView.frame.size.width)
                 let height = (collectionView.frame.size.width + 40)/2
                 return CGSize(width: width, height: height)
+            }else{
+                let height = (collectionView.frame.size.width + 20) / 2
+                let width = (collectionView.frame.size.width - 10) / 2
+                return CGSize(width: width, height: height)
             }
-            let height = (collectionView.frame.size.width + 20) / 2
-            let width = (collectionView.frame.size.width - 10) / 2
-            return CGSize(width: width, height: height)
         }
     } // function body end
     
@@ -142,7 +141,6 @@ extension HomeViewController{
         
         self.uploadBttn.layer.cornerRadius = min(self.uploadBttn.frame.size.height,self.uploadBttn.frame.size.width) / 2.0
         self.uploadBttn.layer.borderWidth = 1
-        
         
     }
 }

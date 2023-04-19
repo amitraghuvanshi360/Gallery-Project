@@ -11,7 +11,8 @@ import iOSDropDown
 
 class SignupVC: BaseViewController, UINavigationControllerDelegate {
     private var country: Country?
-    private var countrydata: [countryData]? = []
+    var countryData = [String]()
+    var isFieldShow: Bool = true
     let picker = UIImagePickerController()
 
     @IBOutlet private weak var profileView: UIView!
@@ -47,19 +48,39 @@ class SignupVC: BaseViewController, UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setInitialLayout()
-        self.setDropDownData()
-        APIManager.countryListAPI{ data in
-            self.country = data as? Country
-            
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.profileOnTapGesture()
+        self.getCountryListAPI()
+        self.setHobbyListData()
 
     }
     
+//   MARK: Country list API
+    private func getCountryListAPI(){
+        DispatchQueue.global().async {
+            // Api request for country
+            APIManager.countryListAPI{ data in
+                if let data  = data{
+                    for i in 0...(data.count) - 1 {
+                        self.countryTextField.optionArray.append("(\((data[i].dialCode))) \((data[i].name)) ")
+                    }
+                }
+
+            }
+        }
+    }
+
+    
+//  MARK: Hobby list data
+    func setHobbyListData(){
+        self.hobbyTextField.optionArray = ["Singing" , "Dancing" ,"Cooking", "Running", "Painting"]
+        self.hobbyTextField.didSelect{( selectedText , index , id) in
+            self.hobbyTextField.text = "\(selectedText) \n index: \(index)"
+        }
+    }
     //MARK: - IB Button Actions
     @IBAction func backButtonAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -79,6 +100,11 @@ class SignupVC: BaseViewController, UINavigationControllerDelegate {
         if !error.isEmpty{
             AlertController.CreateAlertMessage(title: Constant.error, message: error, viewController: self)
         }
+        
+        let viewController =  self.storyboard?.instantiateViewController(withIdentifier: "NewPasswordVC") as! NewPasswordVC
+        viewController.isHideShow = self.isFieldShow
+        self.navigationController?.pushViewController(viewController, animated: true)
+        
     }
     
 //    MARK: Gender button action
@@ -128,19 +154,6 @@ extension SignupVC {
         self.continueBttn.layer.borderColor = ButtonColor.defaultColor.cgColor
         
     }
-    
-    
-    func setDropDownData(){
-        self.countryTextField.optionArray = ["India"]
-        countryTextField.didSelect{(selectedText , index ,id) in
-            self.countryTextField.text = "\(selectedText) \n index: \(index)"
-        }
-        self.hobbyTextField.optionArray = ["Singing" , "Dancing" ,"Cooking", "Running", "Painting"]
-        self.hobbyTextField.didSelect{( selectedText , index , id) in
-            self.hobbyTextField.text = "\(selectedText) \n index: \(index)"
-        }
-
-    }
    
 } // end extension body
 
@@ -161,7 +174,7 @@ extension SignupVC: UIImagePickerControllerDelegate {
             pickProfileImage.addGestureRecognizer(tapGestureRecognizer)
             pickProfileImage.isUserInteractionEnabled = true
         }
-    
+//    select image for profile
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
@@ -169,13 +182,15 @@ extension SignupVC: UIImagePickerControllerDelegate {
         }
     }
     
+//    maximum length setup for mobile number
     override func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        var maxLength: Int = 0
+        
         if textField == self.mobileTextField{
-            maxLength = 10
+            var maxLength: Int = 10
+            let currentStr:NSString = textField.text! as NSString
+            let newStr:NSString = currentStr.replacingCharacters(in: range, with: string) as! NSString
+            return newStr.length <= maxLength
         }
-        let currentStr:NSString = textField.text as! NSString
-        let newStr:NSString = currentStr.replacingCharacters(in: range, with: string) as! NSString
-        return newStr.length <= maxLength
+        return true
     }
 } // extension end body

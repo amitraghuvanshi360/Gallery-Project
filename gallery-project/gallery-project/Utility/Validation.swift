@@ -9,7 +9,7 @@ import Foundation
 
 
 class Validation{
-    
+//    MARK: Checking for valid email address
     class func isValidEmailAddress(email: String) -> Bool {
         var returnValue = true
         let emailRegEx = "[A-Z0-9a-z.-_]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}"
@@ -52,6 +52,8 @@ class Validation{
         } // function end
     
     
+    
+//   MARK: Validation for signup screen
     class func validateInputData(name: String, email: String , password: String , mobile: String, hobbies: String) -> String{
         var errorMessage: String = ""
         if name.isEmpty {
@@ -94,5 +96,25 @@ class Validation{
         }
         return errorMessage
     } //end validation func validation  body
-              
+        
+//    MARK: Validations for new password creation
+    class func isNewPasswordValid(newPassword: String , confirmpPassword:String) ->String {
+        var errorMessage:String = ""
+        if newPassword.isEmpty{
+            errorMessage = Constant.enterPassword
+            return errorMessage
+        }else if newPassword.count < 6{
+            errorMessage = Constant.isPasswordShort
+            return errorMessage
+        }
+        
+        else if confirmpPassword.isEmpty{
+            errorMessage = Constant.isConfirmPasswordEmpty
+            return errorMessage
+        }else if newPassword != confirmpPassword{
+            errorMessage = Constant.passowrdMissmatch
+            return errorMessage
+        }
+        return errorMessage
+    }
 }

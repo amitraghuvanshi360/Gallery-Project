@@ -24,3 +24,4 @@ extension UICollectionViewDelegateFlowLayout{
         return CGSize(width: size, height: size)
     }
 }
+

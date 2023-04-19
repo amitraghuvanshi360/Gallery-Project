@@ -55,8 +55,8 @@ class APIManager : NSObject {
 
     
     
-   class func countryListAPI(completion:@escaping (Country?) -> Void){
-        let base_url = "https://api.first.org/data/v1/countries"
+    class func countryListAPI(completion:@escaping (Country?) -> Void){
+        let base_url = "https://gist.githubusercontent.com/anubhavshrimal/75f6183458db8c453306f93521e93d37/raw/f77e7598a8503f1f70528ae1cbf9f66755698a16/CountryCodes.json"
         guard let url = URL.init(string: base_url) else {
             return
         }
@@ -78,4 +78,5 @@ class APIManager : NSObject {
             }
         }).resume()
     }
+       
 }

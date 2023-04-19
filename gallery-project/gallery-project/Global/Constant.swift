@@ -10,7 +10,7 @@ import Foundation
 
 struct Constant{
     
-    static let BASE_URL = "https://192.168.0.230:7184/"
+    static let BASE_URL = "https://192.168.0.232:7184/"
     
     static let ok = "Ok"
     static let done = "Done"
@@ -31,5 +31,7 @@ struct Constant{
     static let isEmailEmpty = "You haven't entered any email"
     static let isPasswordEmpty = "You haven't entered any password"
     static let isPasswordShort = "Entered password length is too short it should have atleast 6 characters"
+    static let isConfirmPasswordEmpty = "Confirm password field is empty"
+    static let passowrdMissmatch = "Entered password not matching try to enter same password in both field"
 }
 

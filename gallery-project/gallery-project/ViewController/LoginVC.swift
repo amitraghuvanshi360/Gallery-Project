@@ -42,11 +42,14 @@ class LoginVC: BaseViewController {
                 attributes: yourAttributes
              )
         forgetpasswordBtton.setAttributedTitle(attributeString, for: .normal)
-
+        APIManager.LoginRequestAPI{ data in
+            print(data)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    
     }
     
     //MARK: - IB Button Actions
@@ -83,11 +86,8 @@ class LoginVC: BaseViewController {
 
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         self.navigationController?.pushViewController(vc, animated: true)
-        
-//        APIMAnager.LoginRequestAPI{
-//            data in
-//            print(data)
-//        }
+
+  
     }
 }
 
@@ -122,4 +122,3 @@ extension LoginVC{
     }
     
 } // extension end
-
