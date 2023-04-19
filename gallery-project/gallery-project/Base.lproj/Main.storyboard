@@ -955,10 +955,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="twz-oB-7J5">
+<<<<<<< Updated upstream
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="770.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IMm-Mw-7OZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="183"/>
+=======
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="863.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IMm-Mw-7OZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
+>>>>>>> Stashed changes
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="C6o-x9-nfr">
                                                         <rect key="frame" x="108" y="80" width="198.5" height="50"/>
@@ -1016,7 +1023,11 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OTP has been sent to your registered email address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dc2-sw-6NG">
+<<<<<<< Updated upstream
                                                 <rect key="frame" x="40" y="210" width="334" height="50"/>
+=======
+                                                <rect key="frame" x="40" y="243" width="334" height="50"/>
+>>>>>>> Stashed changes
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="eD1-JE-rAo"/>
                                                 </constraints>
@@ -1025,7 +1036,11 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="whP-b0-ibn">
+<<<<<<< Updated upstream
                                                 <rect key="frame" x="40" y="280" width="334" height="60"/>
+=======
+                                                <rect key="frame" x="40" y="313" width="334" height="60"/>
+>>>>>>> Stashed changes
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jOB-7x-i5F">
                                                         <rect key="frame" x="0.0" y="8" width="334" height="44"/>
@@ -1077,8 +1092,24 @@
                                                     <constraint firstItem="jOB-7x-i5F" firstAttribute="top" secondItem="whP-b0-ibn" secondAttribute="top" constant="8" id="aWA-6k-tOu"/>
                                                 </constraints>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XvX-7F-bo6">
+                                                <rect key="frame" x="40" y="413" width="334" height="45"/>
+                                                <color key="backgroundColor" name="primaryColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="vbf-gk-dER"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="VERIFY OTP">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="NZq-Mb-BOI">
+<<<<<<< Updated upstream
                                                 <rect key="frame" x="40" y="370" width="334" height="245"/>
+=======
+                                                <rect key="frame" x="40" y="463" width="334" height="245"/>
+>>>>>>> Stashed changes
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YcJ-0I-ZXt">
                                                         <rect key="frame" x="0.0" y="0.0" width="334" height="25"/>
@@ -1154,6 +1185,9 @@
                                                         <state key="normal" title="Continue">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="submitButtonAction:" destination="XQK-5n-IJc" eventType="touchUpInside" id="8Dz-qm-qEf"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -1172,12 +1206,21 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="IMm-Mw-7OZ" firstAttribute="leading" secondItem="twz-oB-7J5" secondAttribute="leading" id="4Nt-Jr-Qbd"/>
-                                            <constraint firstItem="NZq-Mb-BOI" firstAttribute="top" secondItem="whP-b0-ibn" secondAttribute="bottom" constant="30" id="Bog-ib-QGx"/>
+                                            <constraint firstItem="XvX-7F-bo6" firstAttribute="trailing" secondItem="whP-b0-ibn" secondAttribute="trailing" id="Be3-D9-iXm"/>
                                             <constraint firstAttribute="trailing" secondItem="IMm-Mw-7OZ" secondAttribute="trailing" id="BrF-yM-bQU"/>
                                             <constraint firstItem="Dc2-sw-6NG" firstAttribute="top" secondItem="twz-oB-7J5" secondAttribute="top" constant="210" id="CEK-y3-i7R"/>
                                             <constraint firstItem="whP-b0-ibn" firstAttribute="top" secondItem="Dc2-sw-6NG" secondAttribute="bottom" constant="20" id="IQe-bq-72d"/>
+<<<<<<< Updated upstream
                                             <constraint firstItem="Dc2-sw-6NG" firstAttribute="leading" secondItem="twz-oB-7J5" secondAttribute="leading" constant="40" id="VxB-Fc-PTP"/>
+=======
+                                            <constraint firstItem="NZq-Mb-BOI" firstAttribute="top" secondItem="XvX-7F-bo6" secondAttribute="bottom" constant="5" id="Jvf-Ww-hzU"/>
+                                            <constraint firstItem="IMm-Mw-7OZ" firstAttribute="height" secondItem="twz-oB-7J5" secondAttribute="height" multiplier="0.25" id="SPI-qE-Dis"/>
+                                            <constraint firstItem="Dc2-sw-6NG" firstAttribute="leading" secondItem="twz-oB-7J5" secondAttribute="leading" constant="40" id="VxB-Fc-PTP"/>
+                                            <constraint firstItem="XvX-7F-bo6" firstAttribute="top" secondItem="whP-b0-ibn" secondAttribute="bottom" constant="40" id="XZ7-SB-h96"/>
+                                            <constraint firstItem="whP-b0-ibn" firstAttribute="height" secondItem="Dc2-sw-6NG" secondAttribute="height" multiplier="1.2" id="Xmi-c7-v6y"/>
+>>>>>>> Stashed changes
                                             <constraint firstItem="whP-b0-ibn" firstAttribute="leading" secondItem="Dc2-sw-6NG" secondAttribute="leading" id="Y3X-sJ-kBL"/>
+                                            <constraint firstItem="XvX-7F-bo6" firstAttribute="leading" secondItem="whP-b0-ibn" secondAttribute="leading" id="cf6-En-W9B"/>
                                             <constraint firstItem="NZq-Mb-BOI" firstAttribute="leading" secondItem="twz-oB-7J5" secondAttribute="leading" constant="40" id="ejt-gP-1Q1"/>
                                             <constraint firstAttribute="trailing" secondItem="NZq-Mb-BOI" secondAttribute="trailing" constant="40" id="fFp-Yb-Tm0"/>
                                             <constraint firstItem="KLm-Xg-Zi6" firstAttribute="top" secondItem="twz-oB-7J5" secondAttribute="top" id="h3a-sr-VJT"/>
@@ -1216,12 +1259,29 @@
                     </view>
                     <size key="freeformSize" width="414" height="900"/>
                     <connections>
+                        <outlet property="buttonHeight" destination="vbf-gk-dER" id="lmo-1V-T55"/>
                         <outlet property="confirmPassField" destination="QOB-5K-jgC" id="0yr-Cq-tY5"/>
                         <outlet property="confirmPasswordView" destination="0Mu-xI-Nao" id="XiL-Rm-2vx"/>
+<<<<<<< Updated upstream
                         <outlet property="newpasswordField" destination="NnT-QP-l28" id="7s2-AU-9tL"/>
                         <outlet property="passwordView" destination="RxF-X5-Jgq" id="C01-5K-ngV"/>
                         <outlet property="passwordVisibilityBttn" destination="PB9-Jm-oUM" id="zZi-mu-VcM"/>
                         <outlet property="setNewPassword" destination="81m-Mm-Mxq" id="TPR-1G-elK"/>
+=======
+                        <outlet property="eyeButton1" destination="urb-Ls-YRg" id="ZhO-Ld-Bn5"/>
+                        <outlet property="eyeButton2" destination="PB9-Jm-oUM" id="274-g2-drc"/>
+                        <outlet property="fieldStackVw" destination="NZq-Mb-BOI" id="aBT-Wr-C5t"/>
+                        <outlet property="newpasswordField" destination="diL-kW-Uat" id="NZZ-rb-WQv"/>
+                        <outlet property="otpIndex1" destination="ETi-j1-X9Q" id="hKy-f9-96S"/>
+                        <outlet property="otpIndex2" destination="xt6-eM-VTY" id="giN-vm-ipY"/>
+                        <outlet property="otpIndex3" destination="s8D-L3-DLu" id="36U-bB-XvR"/>
+                        <outlet property="otpIndex4" destination="1d3-Hh-IsO" id="df5-MD-aP7"/>
+                        <outlet property="otpIndex5" destination="mei-8H-KnK" id="Bxx-eU-VyH"/>
+                        <outlet property="otpIndex6" destination="CiW-4e-Zir" id="ZVB-lH-4A3"/>
+                        <outlet property="passwordView" destination="RxF-X5-Jgq" id="C01-5K-ngV"/>
+                        <outlet property="submitBttn" destination="81m-Mm-Mxq" id="kjT-Zx-A3W"/>
+                        <outlet property="verifyOtpButton" destination="XvX-7F-bo6" id="qDF-ok-dUr"/>
+>>>>>>> Stashed changes
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3EF-AI-KKc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -24,9 +24,31 @@ class LoginVC: UIViewController{
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         self.initialLayout()
+<<<<<<< Updated upstream:gallery-project/gallery-project/LoginVC.swift
         
     }
     
+=======
+        let yourAttributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.systemFont(ofSize: 17, weight: .bold),
+             .foregroundColor: UIColor.black,
+             .underlineStyle: NSUnderlineStyle.single.rawValue
+         ]
+       let  attributeString = NSMutableAttributedString(
+                string: "Forgot Password ?",
+                attributes: yourAttributes
+             )
+        forgetpasswordBtton.setAttributedTitle(attributeString, for: .normal)
+        APIManager.LoginRequestAPI{ data in
+            print(data)
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    
+    }
+>>>>>>> Stashed changes:gallery-project/gallery-project/ViewController/LoginVC.swift
     
 //    MARK: Move to next controller SignupVC
     @IBAction func moveToSignup(_ sender: Any) {
@@ -63,6 +85,7 @@ class LoginVC: UIViewController{
 // MARK: TextField delegate methods
 extension LoginVC : UITextFieldDelegate{
 
+<<<<<<< Updated upstream:gallery-project/gallery-project/LoginVC.swift
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
                 nextField.becomeFirstResponder()
@@ -71,6 +94,12 @@ extension LoginVC : UITextFieldDelegate{
                 return true;
             }
             return false
+=======
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+
+  
+>>>>>>> Stashed changes:gallery-project/gallery-project/ViewController/LoginVC.swift
     }
 }
 
@@ -121,4 +150,3 @@ extension LoginVC{
         } // function end
     
 } // extension end
-

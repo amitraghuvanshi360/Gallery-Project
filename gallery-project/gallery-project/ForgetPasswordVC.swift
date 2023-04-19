@@ -9,6 +9,12 @@ import Foundation
 import UIKit
 
 class ForgetPasswordVC: UIViewController{
+<<<<<<< Updated upstream:gallery-project/gallery-project/ForgetPasswordVC.swift
+=======
+    var isFieldShow: Bool = false
+    var completionGetData: ( (String) -> Void )?
+    weak var delegate: GetDataFromForgetPasswordProtocol?
+>>>>>>> Stashed changes:gallery-project/gallery-project/ViewController/ForgetPasswordVC.swift
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordView: UIView!
@@ -24,6 +30,7 @@ class ForgetPasswordVC: UIViewController{
     }
     @IBAction func resetPasswordAction(_ sender: Any) {
         let moveToNextVC = self.storyboard?.instantiateViewController(withIdentifier: "NewPasswordVC") as! NewPasswordVC
+        moveToNextVC.isHideShow = self.isFieldShow
         self.navigationController?.pushViewController(moveToNextVC, animated: true)
     }
     
